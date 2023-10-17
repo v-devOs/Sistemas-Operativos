@@ -1,5 +1,5 @@
 package estructuras;
 
-public class Queue {
+public class Cola {
   
 }
