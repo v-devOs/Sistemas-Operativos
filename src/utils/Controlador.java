@@ -1,6 +1,7 @@
 package utils;
 
 import nodos.Proceso;
+import planificadores.FIFO;
 import planificadores.LIFO;
 import utils.input.Entradas;
 
@@ -8,6 +9,7 @@ public class Controlador {
   private Entradas inputs;
   private Proceso[] procesosCreados;
   private LIFO lifo;
+  private FIFO fifo;
 
 
   public void crearProcesos(){
@@ -24,9 +26,10 @@ public class Controlador {
       case 1:
         lifo = new LIFO(procesosCreados);
         lifo.realizarProcesos();
-        
         break;
-    
+      case 2: 
+        fifo = new FIFO(procesosCreados);
+        fifo.realizarProcesos();
       default:
         break;
     }

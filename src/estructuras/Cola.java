@@ -34,6 +34,23 @@ public class Cola {
     }
   }
 
+  public boolean isEmpty(){
+    return inicio == null;
+  }
+
+  public void showElements(){
+    Proceso aux = inicio;
+
+    System.out.println("----Memoria----");
+
+    if( inicio != null ){
+      while (aux.getProcesoSig() != null ) {
+        System.out.println(aux.extendToString());
+        aux = aux.getProcesoSig();
+      }
+    }
+  }
+
   public Cola(){
     inicio = null;
   }

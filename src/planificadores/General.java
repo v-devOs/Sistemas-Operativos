@@ -51,9 +51,22 @@ public class General {
     procesoCpu.setUbicacion("CPU");
   }
 
+  public void cambiarDatosProceso( Proceso proceso ){
+    proceso.setEstado("W");
+    proceso.setUbicacion("M");
+  }
+
   public void mostrarDatosCPU(){
     System.out.println("-----------CPU-----------");
 
     if( procesoCpu != null ) System.out.println(procesoCpu.extendToString());
+  }
+
+  public void iniciarVariables( Proceso[] procesos ){
+    this.procesos = procesos;
+    procesoCpu = null;
+    posSalidaProceso = 0;
+    totalProcesosCompletados = 0;
+    procesosTerminados = new Proceso[ procesos.length ];
   }
 }

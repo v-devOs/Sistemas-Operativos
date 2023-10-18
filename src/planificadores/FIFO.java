@@ -2,13 +2,13 @@ package planificadores;
 
 import java.util.ArrayList;
 
-import estructuras.Pila;
+import estructuras.Cola;
 import nodos.Proceso;
 import utils.input.Entradas;
 import utils.ui.ProcesoUi;
 
-public class LIFO extends General {
-  private Pila pila;
+public class FIFO extends General{
+  private Cola cola;
 
   public void realizarProcesos(){
     ProcesoUi procesoUi = new ProcesoUi();
@@ -24,21 +24,21 @@ public class LIFO extends General {
       listProcesos = buscarProcesos(tiempo);
       if( !listProcesos.isEmpty() ) asignarEstadosUbicaciones(listProcesos);
 
-      if( procesoCpu == null && listProcesos.isEmpty() && !pila.isEmpty()){
-        procesoCpu = pila.pop();
+      if( procesoCpu == null && listProcesos.isEmpty() && !cola.isEmpty()){
+        procesoCpu = cola.out();
         cambiarDatosCpu();
       }
 
       mostrarDatosCPU();
-      pila.showElements();
+      cola.showElements();
       
       inputs.esperar();
     }
 
     procesoUi.mostarProcesos(procesosTerminados, true, true);
   }
-  
-  private void asignarEstadosUbicaciones( ArrayList<Proceso> listProcesos ){
+
+  private void asignarEstadosUbicaciones(ArrayList<Proceso> listProcesos) {
     asignarProcesoCPUInicial(listProcesos);
     ponerProcesosEnEspera(listProcesos);
   }
@@ -47,12 +47,12 @@ public class LIFO extends General {
 
     for (Proceso proceso : listProcesos) {
       cambiarDatosProceso(proceso);
-      pila.push(proceso);
+      cola.in(proceso);
     }
   }
-  
-  public LIFO( Proceso[] procesos ){
-    iniciarVariables(procesos);
-    pila = new Pila();
-  }
+
+  public FIFO( Proceso[] procesos){
+    iniciarVariables( procesos );
+    cola = new Cola();
+  }  
 }
