@@ -15,6 +15,11 @@ public class Entradas {
     numProcesos = input.nextInt();
   }
 
+  public void esperar(){
+    System.out.println("Presiona enter para seguir");
+    input.nextInt();
+  }
+
   public int getOpc(){
     return opc;
   }
