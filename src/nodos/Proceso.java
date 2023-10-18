@@ -45,10 +45,10 @@ public class Proceso {
 
   @Override
   public String toString(){
-    return pid + "  |   " + llegada + "     |    " + duracion;
+    return "PID: " + pid + " | Llegada: " + llegada + " | Duración: " + duracion;
   }
 
   public String extendToString(){
-    return toString() + " | " + estado + " | " + ubicacion;
+    return toString() + "| Estado:  " + estado + " | Ubicación: " + ubicacion;
   }
 }

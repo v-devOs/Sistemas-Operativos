@@ -17,7 +17,7 @@ public class Entradas {
 
   public void esperar(){
     System.out.println("Presiona enter para seguir");
-    input.nextInt();
+    input.nextLine();
   }
 
   public int getOpc(){

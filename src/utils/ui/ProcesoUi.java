@@ -5,16 +5,20 @@ import nodos.Proceso;
 public class ProcesoUi {
   
 
-  public void mostarProcesosCreados( Proceso[] procesos ){
-
+  public void mostarProcesos( Proceso[] procesos, boolean usarExtend, boolean esSalidaFinal ){
+    String header = esSalidaFinal ? "Salida" : "Procesos creados";
     int index;
 
-
-    System.out.println("--------Procesos Creados---------");
-    System.out.println("PID | Llegada | Duración");
+    System.out.println("--------"+header+"---------");
     for ( index = 0; index < procesos.length; index++) {
-      System.out.println(procesos[index].toString());
-    }
 
+      if( usarExtend ) System.out.println(procesos[index].extendToString());
+      else System.out.println(procesos[index].toString());
+    }
   }
+
+  public void mostrarProcesoCpu( Proceso proceso ){
+    System.out.println("---------CPU--------");
+    proceso.extendToString();
+  }  
 }

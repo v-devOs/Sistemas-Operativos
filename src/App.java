@@ -17,16 +17,20 @@ public class App {
         do {
             menuUi.mostrarMenuOpciones();
             inputs.leerOpcion();
+
+            if( inputs.getOpc() != 0 ){
+
+                menuUi.mostrarMensajeProcesos();
+                inputs.leerNumProcesos();
     
-            menuUi.mostrarMensajeProcesos();
-            inputs.leerNumProcesos();
-
-            controller = new Controlador(inputs);
-            controller.crearProcesos();
-
-            processUi.mostarProcesosCreados(controller.getProcesosCreados());
-
-
+                controller = new Controlador(inputs);
+                controller.crearProcesos();
+    
+                processUi.mostarProcesos(controller.getProcesosCreados(), false, false );
+    
+                controller.realizarProcesosCreados();
+            } 
+    
         } while (inputs.getOpc() != 0);
     }
 }

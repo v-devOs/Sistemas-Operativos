@@ -28,6 +28,22 @@ public class Pila {
     return tope == null;
   }
 
+  public void showElements(){
+    Proceso aux = tope;
+
+    System.out.println("----Memoria----");
+
+    if( tope != null ){
+
+      while( aux.getProcesoSig() != null ){
+        System.out.println(aux.extendToString());
+        aux = aux.getProcesoSig();
+      }
+    }
+
+    System.out.println("---------------\n");
+  }
+
   public Pila(){
     tope = null;
   }
