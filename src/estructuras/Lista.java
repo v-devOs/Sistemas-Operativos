@@ -4,9 +4,21 @@ import nodos.Proceso;
 
 public class Lista {
   private Proceso inicio;
+  private boolean ordenarMayorMenor;
 
   public void in( Proceso sig ){
+
     if( inicio == null ) inicio = sig;
+    else if( !ordenarMayorMenor ){
+      inFormaAscendente(sig);
+    }
+    else{
+      inFormaDescendente(sig);
+    }
+    
+  }
+  
+  private void inFormaAscendente( Proceso sig  ){
     if( inicio.getDuracion() > sig.getDuracion() ){
       sig.setProcesoSig(inicio);
       inicio = sig;
@@ -16,12 +28,36 @@ public class Lista {
       sig.setProcesoSig(aux.getProcesoSig());
       aux.setProcesoSig(sig);
     }
+    
+  }
+
+  private void inFormaDescendente( Proceso sig ){
+    if( inicio.getDuracion() < sig.getDuracion() ){
+      sig.setProcesoSig(inicio);
+      inicio = sig;
+    }
+    else{
+      Proceso aux = buscarPoscicionMayor(sig);
+      sig.setProcesoSig(aux.getProcesoSig());
+      aux.setProcesoSig(sig);
+    }
   }
 
   private Proceso buscarPosicion( Proceso sig ){
     Proceso auxBusqueda = inicio, seguidor = auxBusqueda;
 
     while ( auxBusqueda.getProcesoSig() != null && auxBusqueda.getProcesoSig().getDuracion() < sig.getDuracion() ) {
+      seguidor = auxBusqueda;
+      auxBusqueda = auxBusqueda.getProcesoSig();
+    }
+
+    return seguidor;
+  }
+
+  private Proceso buscarPoscicionMayor( Proceso sig ){
+    Proceso auxBusqueda = inicio, seguidor = auxBusqueda;
+
+    while ( auxBusqueda.getProcesoSig() != null && auxBusqueda.getProcesoSig().getDuracion() > sig.getDuracion() ) {
       seguidor = auxBusqueda;
       auxBusqueda = auxBusqueda.getProcesoSig();
     }
@@ -54,7 +90,8 @@ public class Lista {
       aux = aux.getProcesoSig();
     }
   }
-  public Lista(){
+  public Lista( boolean ordenarMayorMenor){
     inicio = null;
+    this.ordenarMayorMenor = ordenarMayorMenor;
   }
 }

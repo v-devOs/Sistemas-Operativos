@@ -7,11 +7,11 @@ import nodos.Proceso;
 import utils.input.Entradas;
 import utils.ui.ProcesoUi;
 
-public class SJF extends General {
+public class LJF  extends General {
   private Lista lista;
 
   public void realizarProcesos(){
-    ProcesoUi procesoUi = new ProcesoUi();
+     ProcesoUi procesoUi = new ProcesoUi();
     Entradas inputs = new Entradas();
     ArrayList<Proceso> listProcesos;
     int tiempo = 0;
@@ -51,8 +51,8 @@ public class SJF extends General {
     }
   }
 
-  public SJF( Proceso[] procesos ){
+  public LJF( Proceso[] procesos ){
     iniciarVariables(procesos);
-    lista = new Lista(false);
+    lista = new Lista(true);
   }
 }

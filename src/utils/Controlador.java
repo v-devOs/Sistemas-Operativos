@@ -3,6 +3,7 @@ package utils;
 import nodos.Proceso;
 import planificadores.FIFO;
 import planificadores.LIFO;
+import planificadores.LJF;
 import planificadores.SJF;
 import utils.input.Entradas;
 
@@ -12,6 +13,7 @@ public class Controlador {
   private LIFO lifo;
   private FIFO fifo;
   private SJF sjf;
+  private LJF ljf;
 
 
   public void crearProcesos(){
@@ -35,6 +37,9 @@ public class Controlador {
       case 3:
         sjf = new SJF(procesosCreados);
         sjf.realizarProcesos();
+      case 4:
+        ljf = new LJF(procesosCreados);
+        ljf.realizarProcesos();
       default:
         break;
     }
