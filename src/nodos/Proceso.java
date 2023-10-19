@@ -38,6 +38,10 @@ public class Proceso {
     return llegada;
   }
 
+  public String getPid(){
+    return pid;
+  }
+
   public void restDuracion(){
     duracion--;
   }
