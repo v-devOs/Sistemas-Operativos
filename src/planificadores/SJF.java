@@ -3,12 +3,13 @@ package planificadores;
 import java.util.ArrayList;
 
 import estructuras.Lista;
+import estructuras.Lista2;
 import nodos.Proceso;
 import utils.input.Entradas;
 import utils.ui.ProcesoUi;
 
 public class SJF extends General {
-  private Lista lista;
+  private Lista2 lista;
 
   public void realizarProcesos(){
     ProcesoUi procesoUi = new ProcesoUi();
@@ -32,7 +33,7 @@ public class SJF extends General {
       mostrarDatosCPU();
       lista.showElements();
       
-      inputs.esperar();
+      // inputs.esperar();
     }
 
     procesoUi.mostarProcesos(procesosTerminados, true, true);
@@ -53,6 +54,6 @@ public class SJF extends General {
 
   public SJF( Proceso[] procesos ){
     iniciarVariables(procesos);
-    lista = new Lista(false);
+    lista = new Lista2();
   }
 }

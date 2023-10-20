@@ -32,7 +32,7 @@ public class FIFO extends General{
       mostrarDatosCPU();
       cola.showElements();
       
-      inputs.esperar();
+      // inputs.esperar();
     }
 
     procesoUi.mostarProcesos(procesosTerminados, true, true);

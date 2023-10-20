@@ -32,7 +32,7 @@ public class LJF  extends General {
       mostrarDatosCPU();
       lista.showElements();
       
-      inputs.esperar();
+      // inputs.esperar();
     }
 
     procesoUi.mostarProcesos(procesosTerminados, true, true);

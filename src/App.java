@@ -28,7 +28,7 @@ public class App {
     
                 processUi.mostarProcesos(controller.getProcesosCreados(), false, false );
 
-                inputs.esperar();
+                // inputs.esperar();
     
                 controller.realizarProcesosCreados();
             } 

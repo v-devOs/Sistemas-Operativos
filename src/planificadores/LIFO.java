@@ -32,7 +32,7 @@ public class LIFO extends General {
       mostrarDatosCPU();
       pila.showElements();
       
-      inputs.esperar();
+      // inputs.esperar();
     }
 
     procesoUi.mostarProcesos(procesosTerminados, true, true);
