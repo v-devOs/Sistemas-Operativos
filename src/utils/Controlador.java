@@ -34,12 +34,15 @@ public class Controlador {
       case 2: 
         fifo = new FIFO(procesosCreados);
         fifo.realizarProcesos();
+        break;
       case 3:
         sjf = new SJF(procesosCreados);
         sjf.realizarProcesos();
+        break;
       case 4:
         ljf = new LJF(procesosCreados);
         ljf.realizarProcesos();
+        break;
       default:
         break;
     }

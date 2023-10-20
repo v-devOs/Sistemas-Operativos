@@ -85,7 +85,7 @@ public class Lista {
     System.out.println("----Memoria----");
 
     if( inicio != null ){
-      aux.extendToString();
+      System.out.println(aux.extendToString());
       aux = aux.getProcesoSig();
     }
   }

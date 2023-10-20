@@ -11,7 +11,7 @@ public class LJF  extends General {
   private Lista lista;
 
   public void realizarProcesos(){
-     ProcesoUi procesoUi = new ProcesoUi();
+    ProcesoUi procesoUi = new ProcesoUi();
     Entradas inputs = new Entradas();
     ArrayList<Proceso> listProcesos;
     int tiempo = 0;
@@ -32,7 +32,7 @@ public class LJF  extends General {
       mostrarDatosCPU();
       lista.showElements();
       
-      // inputs.esperar();
+      inputs.esperar();
     }
 
     procesoUi.mostarProcesos(procesosTerminados, true, true);
